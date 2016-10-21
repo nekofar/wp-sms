@@ -113,13 +113,13 @@ final class WP_Sms_Settings {
 		// Allow iframe, object and embed tags in textarea fields.
 		$allowed 			= wp_kses_allowed_html( 'post' );
 		$allowed['iframe'] 	= array(
-								'src' 		=> true,
-								'width' 	=> true,
-								'height' 	=> true,
-								'id' 		=> true,
-								'class' 	=> true,
-								'name' 		=> true
-								);
+			'src' 		=> true,
+			'width' 	=> true,
+			'height' 	=> true,
+			'id' 		=> true,
+			'class' 	=> true,
+			'name' 		=> true
+			);
 		$allowed['object'] 	= array(
 								'src' 		=> true,
 								'width' 	=> true,

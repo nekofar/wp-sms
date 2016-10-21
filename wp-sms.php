@@ -7,7 +7,7 @@
  * Author: Mostafa Soufi
  * Author URI: http://mostafa-soufi.ir/
  * Requires at least: 4.0.0
- * Tested up to: 4.6.0
+ * Tested up to: 4.6.1
  *
  * Text Domain: wp-sms
  * Domain Path: /languages/

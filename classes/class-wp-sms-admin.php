@@ -62,8 +62,24 @@ final class WP_Sms_Admin {
 	 * @return  void
 	 */
 	public function register_settings_screen () {
-		$this->_hook = add_submenu_page( 'options-general.php', __( 'Starter Plugin Settings', 'wp-sms' ), __( 'Starter Plugin', 'wp-sms' ), 'manage_options', 'wp-sms', array( $this, 'settings_screen' ) );
+		$this->_hook = add_menu_page( __( 'SMS', 'wp-sms' ), __( 'SMS', 'wp-sms' ), 'manage_options', 'wp-sms', array( $this, 'outbox_screen' ), 'dashicons-email-alt' );
+		add_submenu_page( 'wp-sms', __( 'Outbox list', 'wp-sms' ), __( 'Outbox list', 'wp-sms' ), 'manage_options', 'wp-sms', array( $this, 'outbox_screen' ) );
+		add_submenu_page( 'wp-sms', __( 'Send new', 'wp-sms' ),  __( 'Send new', 'wp-sms' ), 'manage_options', 'wp-sms-send', array( $this, 'send_new_screen' ) );
+		add_submenu_page( 'wp-sms',  __( 'Subscribers', 'wp-sms' ), __( 'Subscribers', 'wp-sms' ), 'manage_options', 'wp-sms-subscribers', array( $this, 'subscribers_screen' ) );
+		add_submenu_page( 'wp-sms',  __( 'Groups', 'wp-sms' ), __( 'Groups', 'wp-sms' ), 'manage_options', 'wp-sms-groups', array( $this, 'groups_screen' ) );
+		add_submenu_page( 'wp-sms',  __( 'Setting', 'wp-sms' ), __( 'Setting', 'wp-sms' ), 'manage_options', 'wp-sms-options', array( $this, 'settings_screen' ) );
+
 	} // End register_settings_screen()
+
+	/**
+	 * Output the markup for the outbox screen.
+	 * @access  public
+	 * @since   1.0.0
+	 * @return  void
+	 */
+	public function outbox_screen () {
+		echo 'dsdsd';
+	} // End outbox_screen()
 
 	/**
 	 * Output the markup for the settings screen.

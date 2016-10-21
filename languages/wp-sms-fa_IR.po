@@ -1,0 +1,986 @@
+# Translation of Stable (latest release) in Persian
+# This file is distributed under the same license as the Stable (latest release) package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Stable (latest release)\n"
+"POT-Creation-Date: 2016-10-21 13:15+0330\n"
+"PO-Revision-Date: 2016-10-21 14:28+0330\n"
+"Last-Translator: \n"
+"Language-Team: Veronalabs <hi@veronalabs.com>\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: F:\\xampp\\htdocs\\cms\\wordpress\\wp-content\\plugins"
+"\\wp-sms\n"
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-admin.php:65
+msgid "SMS"
+msgstr "پیامک"
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-admin.php:66
+msgid "Outbox list"
+msgstr "لیست ارسالی‌ها"
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-admin.php:67
+msgid "Send new"
+msgstr "ارسال جدید"
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-admin.php:68
+msgid "Subscribers"
+msgstr "مشترکین"
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-admin.php:69
+msgid "Groups"
+msgstr "گروه‌ها"
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-admin.php:70
+msgid "Setting"
+msgstr "تنظیمات"
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-admin.php:93
+msgid "Save Changes"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:99
+#, php-format
+msgid "Add New %s"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:100
+#, fuzzy, php-format
+msgid "Edit %s"
+msgstr "ویرایش"
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:101
+#, php-format
+msgid "New %s"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:102
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:103
+#, php-format
+msgid "View %s"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:104
+#, fuzzy
+msgid "Search %a"
+msgstr "جستجو"
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:105
+#, fuzzy, php-format
+msgid "No %s Found"
+msgstr "یافت نشد!"
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:106
+#, php-format
+msgid "No %s Found In Trash"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:175
+msgid "Image"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:209
+#, php-format
+msgid "%3$s updated. %sView %4$s%s"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:210
+msgid "Custom field updated."
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:211
+msgid "Custom field deleted."
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:212
+#, php-format
+msgid "%s updated."
+msgstr ""
+
+#. translators: %s: date and time of the revision
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:214
+#, php-format
+msgid "%s restored to revision from %s"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:215
+#, php-format
+msgid "%1$s published. %3$sView %2$s%4$s"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:216
+#, php-format
+msgid "%s saved."
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:217
+#, php-format
+msgid "%s submitted. %sPreview %s%s"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:218
+#, php-format
+msgid "%s scheduled for: %1$s. %2$sPreview %s%3$s"
+msgstr ""
+
+#. translators: Publish box date format, see http://php.net/date
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:220
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:221
+#, php-format
+msgid "%s draft updated. %sPreview %s%s"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:234
+msgid "Thing Details"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:330
+msgid "Enter the thing title here"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:345
+msgid "URL"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-meta-box.php:346
+msgid ""
+"Enter a URL that applies to this thing (for example: http://domain.com/)."
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:222
+msgid "Standard Fields"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:223
+msgid "Special Fields"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:246
+msgid "Example Text Input"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:250
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:257
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:264
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:276
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:288
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:299
+msgid "Place the field description text here."
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:253
+msgid "Example Textarea"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:260
+msgid "Example Checkbox"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:267
+msgid "Example Radio Buttons"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:272
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:284
+msgid "One"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:273
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:285
+msgid "Two"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:274
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:286
+msgid "Three"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:279
+msgid "Example Select"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/classes/class-wp-sms-settings.php:295
+msgid "Example Taxonomy Selector"
+msgstr ""
+
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/wp-sms.php:162
+#: F:\xampp\htdocs\cms\wordpress\wp-content\plugins\wp-sms/wp-sms.php:171
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#~ msgid "Outbox SMS"
+#~ msgstr "پیامک‌های ارسال شده"
+
+#~ msgid "Outbox messages"
+#~ msgstr "ارسال‌شده"
+
+#~ msgid "Your credit for send sms is low!"
+#~ msgstr "اعتبار شما برای ارسال پیامک کم است!"
+
+#~ msgid "Subscribers Group"
+#~ msgstr "گروه مشترکین"
+
+#~ msgid "Wordpress SMS"
+#~ msgstr "پیامک وردپرس"
+
+#~ msgid ""
+#~ "For Activate WP SMS Plugin, please enable your <a href=\"%s\">SMS "
+#~ "gateway</a>."
+#~ msgstr ""
+#~ "برای فعال کردن افزونه پیامک وردپرس، لطفاً <a href=\"%s\">درگاه پیامک</a> "
+#~ "خود را فعال کنید."
+
+#~ msgid "%s SMS Credit"
+#~ msgstr "%s اعتبار پیامک"
+
+#~ msgid "%s Subscriber"
+#~ msgstr "%s مشترک"
+
+#~ msgid "A complete wordpress plugin to send sms with a high capability."
+#~ msgstr "یک افزونه کامل برای وردپرس برای ارسال پیامک با قابلیت های فراوان."
+
+#~ msgid "WP SMS"
+#~ msgstr "پیامک وردپرس"
+
+#~ msgid "Subscribe SMS"
+#~ msgstr "اشتراک پیامک"
+
+#~ msgid "Subscribe SMS Widget"
+#~ msgstr "ابزارک اشتراک پیامک"
+
+#~ msgid "Subscribe SMS Form"
+#~ msgstr "فرم اشتراک پیامک"
+
+#~ msgid "Get professional package!"
+#~ msgstr "دریافت بسته حرفه‌ای!"
+
+#~ msgid "Subscribe to our Email Newsletter"
+#~ msgstr "اشتراک در خبرنامه ایمیلی ما"
+
+#~ msgid "Rate this plugin"
+#~ msgstr "امتیاز به افزونه"
+
+#~ msgid "Click here to rate and review this plugin on WordPress.org"
+#~ msgstr "برای ارسال امتیاز در Wordpress.org اینجا را کلیک کنید"
+
+#~ msgid "Activate code"
+#~ msgstr "کد فعال سازی:"
+
+#~ msgid "Total subscribers"
+#~ msgstr "تعداد مشترکین"
+
+#~ msgid "SMS Sended."
+#~ msgstr "پیامک ارسال شد."
+
+#~ msgid "Item removed."
+#~ msgstr "آیتم حذف شد."
+
+#~ msgid "Items removed."
+#~ msgstr "آیتم ها حذف شدند."
+
+#~ msgid "Recipient"
+#~ msgstr "دریافت کننده"
+
+#~ msgid "Message"
+#~ msgstr "متن پیام"
+
+#~ msgid "Date"
+#~ msgstr "تاریخ"
+
+#~ msgid "Delete"
+#~ msgstr "حذف"
+
+#~ msgid "Resend"
+#~ msgstr "ارسال مجدد"
+
+#~ msgid "%s <span class=\"wpsms-time\">Time: %s</span>"
+#~ msgstr "%s <span class=\"wpsms-time\">ساعت: %s</span>"
+
+#~ msgid "HTML code is valid."
+#~ msgstr "کد HTML معتبر است."
+
+#~ msgid "Description"
+#~ msgstr "توضیحات"
+
+#~ msgid "Title"
+#~ msgstr "عنوان"
+
+#~ msgid "User mobile number."
+#~ msgstr "شماره موبایل کاربر."
+
+#~ msgid "Subscribe is Deactive!"
+#~ msgstr "خبرنامه غیرفعال است!"
+
+#~ msgid "Activation code:"
+#~ msgstr "کدفعال سازی:"
+
+#~ msgid "Unsubscribe"
+#~ msgstr "لغو اشتراک"
+
+#~ msgid "Your mobile"
+#~ msgstr "موبایل شما"
+
+#~ msgid "Activation"
+#~ msgstr "فعال سازی"
+
+#~ msgid "Loading..."
+#~ msgstr "بارگزاری..."
+
+#~ msgid "Send"
+#~ msgstr "ارسال"
+
+#~ msgid "Your friend mobile"
+#~ msgstr "موبایل دوست شما"
+
+#~ msgid "Your friend name"
+#~ msgstr "نام دوست شما"
+
+#~ msgid "Your name"
+#~ msgstr "نام شما"
+
+#~ msgid "Suggested by SMS"
+#~ msgstr "پیشنهاد از طریق پیامک"
+
+#~ msgid "Select the group"
+#~ msgstr "گروه انتخاب کنید"
+
+#~ msgid "Please select"
+#~ msgstr "لطفا انتخاب کنید"
+
+#~ msgid "Send this post to subscribers?"
+#~ msgstr "ارسال این نوشته به کاربران خبرنامه؟"
+
+#~ msgid "Close"
+#~ msgstr "بستن"
+
+#~ msgid "Subscribe"
+#~ msgstr "اشتراک"
+
+#~ msgid "Subscribe to our mailing list for get any news of the WP SMS plugin"
+#~ msgstr "عضویت در خبرنامه ما برای دریافت هرگونه اخبار از افزونه پیامک وردپرس"
+
+#~ msgid "Manage Group"
+#~ msgstr "مدیریت گروه"
+
+#~ msgid "Add Subscribe"
+#~ msgstr "افزودن مشترک"
+
+#~ msgid "Upload"
+#~ msgstr "بارگزاری"
+
+#~ msgid ""
+#~ "<code>Excel 97-2003 Workbook (*.xls)</code> is the only acceptable "
+#~ "format. Please see <a href=\"%s\">this image</a> to show a standard xls "
+#~ "import file."
+#~ msgstr ""
+#~ "فرمت <code>Excel 97-2003 Workbook (*.xls)</code> تنها فرمت قابل قبول برای "
+#~ "درون‌ریزی است. <a href=\"%s\">این تصویر</a> را برای ساختار استاندارد "
+#~ "درون‌ریزی مشاهده کنید."
+
+#~ msgid "Import"
+#~ msgstr "درون‌ریزی"
+
+#~ msgid "Select the output file type."
+#~ msgstr "لطفاً نوع فایل خروجی را انتخاب کنید."
+
+#~ msgid "Please select."
+#~ msgstr "لطفا انتخاب کنید."
+
+#~ msgid "Export To"
+#~ msgstr "برون‌بری به"
+
+#~ msgid "Export"
+#~ msgstr "برون‌بری"
+
+#~ msgid "Edit Subscriber"
+#~ msgstr "ویرایش مشترک"
+
+#~ msgid "There is no group! <a href=\"%s\">Add</a>"
+#~ msgstr "گروهی موجود نیست! <a href=\"%s\">افزودن گروه</a>"
+
+#~ msgid "Group"
+#~ msgstr "گروه"
+
+#~ msgid "Subscriber Info:"
+#~ msgstr "اطلاعات مشترک:"
+
+#~ msgid "Add Subscriber"
+#~ msgstr "افزودن مشترک"
+
+#~ msgid "Add"
+#~ msgstr "افزودن"
+
+#~ msgid "Back"
+#~ msgstr "بازگشت"
+
+#~ msgid "Name"
+#~ msgstr "نام"
+
+#~ msgid "Group Info:"
+#~ msgstr "اطلاعات گروه"
+
+#~ msgid "Add Group"
+#~ msgstr "افزودن گروه"
+
+#~ msgid "Deactive"
+#~ msgstr "غیرفعال"
+
+#~ msgid "Credit"
+#~ msgstr "اعتبار"
+
+#~ msgid "Your SMS sender number in <a href=\"%s\">%s</a>"
+#~ msgstr "شماره ارسال کننده پیامک شما در <a href=\"%s\">%s</a>"
+
+#~ msgid "Number"
+#~ msgstr "شماره"
+
+#~ msgid "Your API Key in <a href=\"%s\">%s</a>"
+#~ msgstr "کلید API شما در <a href=\"%s\">%s</a>"
+
+#~ msgid "API/Key"
+#~ msgstr "API/Key"
+
+#~ msgid "Your password in <a href=\"%s\">%s</a>"
+#~ msgstr "رمزعبور شما در <a href=\"%s\">%s</a>"
+
+#~ msgid "Password"
+#~ msgstr "رمزعبور"
+
+#~ msgid "Your username in <a href=\"%s\">%s</a>"
+#~ msgstr "نام‌کاربری شما در <a href=\"%s\">%s</a>"
+
+#~ msgid "If you do not have a web service, <a href=\"%s\">click here.</a>"
+#~ msgstr ""
+#~ "اگر شما وب سرویس پیامک ندارید، <a href=\"%s\">اینجا را</a> کلیک کنید."
+
+#~ msgid ""
+#~ "If your Web service is not on the top list, <a href=\"%s\">click here.</a>"
+#~ msgstr ""
+#~ "اگر وب سرویس شما در لیست بالا نیست،<a href=\"%s\">اینجا را</a> کلیک کنید."
+
+#~ msgid "Reset"
+#~ msgstr "ریست"
+
+#~ msgid "For more information about adding Web Service"
+#~ msgstr "اطلاعات بیشتر در مورد اضافه کردن وب سرویس"
+
+#~ msgid "Global"
+#~ msgstr "عمومی"
+
+#~ msgid "Polish"
+#~ msgstr "لهستانی"
+
+#~ msgid "Italian"
+#~ msgstr "ایتالیا"
+
+#~ msgid "Indian"
+#~ msgstr "هند"
+
+#~ msgid "Pakistan"
+#~ msgstr "پاکستان"
+
+#~ msgid "Austria"
+#~ msgstr "اتریش"
+
+#~ msgid "New Zealand"
+#~ msgstr "نیوزلند"
+
+#~ msgid "German"
+#~ msgstr "آلمان"
+
+#~ msgid "Spania"
+#~ msgstr "اسپانیا"
+
+#~ msgid "Iran"
+#~ msgstr "ایران"
+
+#~ msgid "Select your Web Service"
+#~ msgstr "وب‌سرویس خود را انتخاب کنید"
+
+#~ msgid "Web Service"
+#~ msgstr "وب سرویس"
+
+#~ msgid "Your Web service data will be deleted. Are you sure?"
+#~ msgstr "اطلاعات وب‌سرویس حذف خواهد شد. آیا مطمئن هستید؟"
+
+#~ msgid "About"
+#~ msgstr "درباره"
+
+#~ msgid "Notifications"
+#~ msgstr "اطلاع رسانی"
+
+#~ msgid "Features"
+#~ msgstr "امکانات"
+
+#~ msgid "Newsletter"
+#~ msgstr "خبرنامه"
+
+#~ msgid "General"
+#~ msgstr "عمومی"
+
+#~ msgid "Required user level to view Send SMS Page"
+#~ msgstr "حداقل سطح دسترسی برای مشاهده صفحه ارسال پیامک"
+
+#~ msgid "Subscriber"
+#~ msgstr "مشترک"
+
+#~ msgid "Contributor"
+#~ msgstr "مشارکت کننده"
+
+#~ msgid "Author"
+#~ msgstr "نویسنده"
+
+#~ msgid "Editor"
+#~ msgstr "ویرایشگر"
+
+#~ msgid "Administrator"
+#~ msgstr "مدیریت"
+
+#~ msgid "Send SMS Page"
+#~ msgstr "صفحه ارسال پیامک"
+
+#~ msgid "Access Levels"
+#~ msgstr "سطح دسترسی"
+
+#~ msgid "Show your credit account in admin menu."
+#~ msgstr "نمایش اعتبار حساب شما در نوار ابزار مدیریت."
+
+#~ msgid "Show Credit in Admin menu"
+#~ msgstr "نمایش اعتبار در نوار ابزار مدیریت"
+
+#~ msgid "Enter your mobile country code."
+#~ msgstr "کد موبایل کشور خود را وارد کنید."
+
+#~ msgid "Your mobile country code"
+#~ msgstr "کد موبایل کشور شما"
+
+#~ msgid ""
+#~ "Enter your mobile number for get sms from plugin. Your mobile should like "
+#~ "<code>%s</code>"
+#~ msgstr ""
+#~ "شماره موبایل خود را برای دریافت پیامک از افزونه وارد کنید. شماره موبایل "
+#~ "شما باید شبیه <code>%s</code> باشد."
+
+#~ msgid "Your Mobile Number"
+#~ msgstr "شماره موبایل شما"
+
+#~ msgid "Should be enable mobile field number in register form"
+#~ msgstr "باید فیلد شماره موبایل در فرم ثبت نام فعال باشد"
+
+#~ msgid "Add wordpress user mobile to newsletter"
+#~ msgstr "افزودن شماره موبایل کاربر وردپرس به خبرنامه"
+
+#~ msgid "Define minimum number mobile number."
+#~ msgstr "تعریف حداقل رقم برای شماره موبایل."
+
+#~ msgid "Min Mobile number"
+#~ msgstr "حداقل رقم شماره موبایل"
+
+#~ msgid "Define maximum number mobile number."
+#~ msgstr "تعریف حداکثر رقم برای شماره موبایل."
+
+#~ msgid "Max Mobile number"
+#~ msgstr "حداکثر رقم‌ شماره موبایل"
+
+#~ msgid "Define text for mobile number field."
+#~ msgstr "تعریف دارنده‌متن برای فیلد شماره موبایل."
+
+#~ msgid "Placeholder field"
+#~ msgstr "دارنده‌متن فیلد"
+
+#~ msgid "Define rules for mobile number input field."
+#~ msgstr "تعریف قوانین برای فیلد ورود شماره موبایل"
+
+#~ msgid "Mobile Number terms"
+#~ msgstr "قوانین شماره موبایل"
+
+#~ msgid "Enable this option with JQuery is called in the theme"
+#~ msgstr "با فعال کردن این گزینه جی کوئری در پوسته فراخوانی میشود"
+
+#~ msgid "Calling jQuery in Wordpress"
+#~ msgstr "فراخوانی جی‌کوئری در وردپرس"
+
+#~ msgid "Subscribe mobile"
+#~ msgstr "موبایل مشترک"
+
+#~ msgid "Subscribe name"
+#~ msgstr "نام مشترک"
+
+#~ msgid "Send a sms to subscriber when register."
+#~ msgstr "ارسال پیامک به مشترک وقتی که در خبرنامه عضو شد."
+
+#~ msgid "Send Welcome-SMS"
+#~ msgstr "ارسال پیامک خوش آمدگویی"
+
+#~ msgid "First you should have select a web service and activate it!"
+#~ msgstr "ابتدا باید یک وب‌سرویس را انتخاب و فعال کنید!"
+
+#~ msgid "Verified subscribe with the activation code"
+#~ msgstr "تأیید اشتراک به همراه کد فعال سازی"
+
+#~ msgid "Status"
+#~ msgstr "وضعیت"
+
+#~ msgid "Update"
+#~ msgstr "به‌روزرسانی"
+
+#~ msgid "Add Mobile number to user profile and register form."
+#~ msgstr "افزودن فیلد شماره موبایل به شناسنامه کاربری و فرم نام‌نویسی."
+
+#~ msgid "Add Mobile number field"
+#~ msgstr "افزودن فیلد شماره موبایل"
+
+#~ msgid "Post short link"
+#~ msgstr "لینک کوتاه نوشته"
+
+#~ msgid "SMS receiver"
+#~ msgstr "دریافت کننده پیامک"
+
+#~ msgid "SMS sender"
+#~ msgstr "ارسال کننده"
+
+#~ msgid "Post title"
+#~ msgstr "عنوان نوشته"
+
+#~ msgid "Suggested post by SMS"
+#~ msgstr "پیشنهاد نوشته از طریق پیامک"
+
+#~ msgid "Are you a translator?"
+#~ msgstr "آیا مترجم هستید؟"
+
+#~ msgid "Go to the link %s"
+#~ msgstr "به لینک %s مراجعه کنید"
+
+#~ msgid "You want add your gateway to this plugin?"
+#~ msgstr "آیا می‌خواهید وب‌سرویس خود را به افزونه اضافه کنید؟"
+
+#~ msgid ""
+#~ "Please open a new thread on the <a href=\"%s\" target=\"_blank"
+#~ "\">Wordpress.org support forum</a>"
+#~ msgstr ""
+#~ "یک تایپیک جدید در <a href=\"%s\" target=\"_blank\">انجمن پشتیبانی وردپرس</"
+#~ "a> ایجاد کنید"
+
+#~ msgid "Do you have a problem?"
+#~ msgstr "آیا مشکلی دارید؟"
+
+#~ msgid "Support"
+#~ msgstr "پشتیبانی"
+
+#~ msgid "Dont have a sms gateway? we recommend to you the following gateways"
+#~ msgstr "آیا درگاه پیامک ندارید؟ ما به شما درگاه‌های زیر را پیشنهاد می‌کنیم"
+
+#~ msgid "SMS Gateway"
+#~ msgstr "درگاه پیامک"
+
+#~ msgid "This plugin is a free product of the %s"
+#~ msgstr "این افزونه یکی از محصولات رایگان %s است"
+
+#~ msgid ""
+#~ "Send a SMS via WordPress, Subscribe for sms newsletter and send an SMS to "
+#~ "the subscriber newsletter."
+#~ msgstr ""
+#~ "ارسال پیامک از طریق وردپرس، عضویت در خبرنامه پیامکی و ارسال پیامک به "
+#~ "مشترکین خبرنامه."
+
+#~ msgid "WP SMS V%s"
+#~ msgstr "افزونه پیامک وردپرس نگارش %s"
+
+#~ msgid "Flash is possible to send messages without being asked, opens"
+#~ msgstr "ارسال فلش امکانی است که پیام را بدون درخواست گیرند، باز می کند"
+
+#~ msgid "No"
+#~ msgstr "خیر"
+
+#~ msgid "Yes"
+#~ msgstr "بله"
+
+#~ msgid "Send a Flash"
+#~ msgstr "ارسال یه‌صورت فلش"
+
+#~ msgid "Your credit"
+#~ msgstr "اعتبار شما"
+
+#~ msgid "The remaining words"
+#~ msgstr "کلمات باقی‌مانده"
+
+#~ msgid "For example: <code>%s</code>"
+#~ msgstr "برای مثال: <code>%s</code>"
+
+#~ msgid "<b>%s</b> Users have mobile number."
+#~ msgstr "<b>%s</b> کاربر شماره موبایل دارند."
+
+#~ msgid "All (%s subscribers active)"
+#~ msgstr "همه (%s مشترک فعال)"
+
+#~ msgid "Number(s)"
+#~ msgstr "شماره(ها)"
+
+#~ msgid "Wordpress Users"
+#~ msgstr "کاربرهای وردپرس"
+
+#~ msgid "Subscribe users"
+#~ msgstr "کاربران خبرنامه"
+
+#~ msgid "Send from"
+#~ msgstr "ارسال از"
+
+#~ msgid "Send SMS"
+#~ msgstr "ارسال پیامک"
+
+#~ msgid "Display name"
+#~ msgstr "نام نمایشی"
+
+#~ msgid "Send a sms to you When user is login."
+#~ msgstr "ارسال پیامک به شما هنگام ورود کاربر به سایت."
+
+#~ msgid "User login"
+#~ msgstr "ورود کاربر"
+
+#~ msgid "Comment content"
+#~ msgstr "متن دیدگاه"
+
+#~ msgid "Comment date"
+#~ msgstr "تاریخ ارسال دیدگاه"
+
+#~ msgid "Comment author IP"
+#~ msgstr "آی‌پی نویسنده دیدگاه"
+
+#~ msgid "Comment author url"
+#~ msgstr "نشانی نویسنده دیدگاه"
+
+#~ msgid "Comment author email"
+#~ msgstr "رایان‌نامه‌ی نویسنده دیدگاه"
+
+#~ msgid "Comment author"
+#~ msgstr "نویسنده‌ی دیدگاه"
+
+#~ msgid "Send a sms to you When get a new comment."
+#~ msgstr "ارسال پیامک به شما هنگام دریافت دیدگاه تازه."
+
+#~ msgid "New comment"
+#~ msgstr "دیدگاه تازه"
+
+#~ msgid "For admin:"
+#~ msgstr "برای مدیر:"
+
+#~ msgid "Date register"
+#~ msgstr "تاریخ نام‌نویسی"
+
+#~ msgid "User email"
+#~ msgstr "پست‌الکترونیک کاربر"
+
+#~ msgid "Username"
+#~ msgstr "نام‌کاربری"
+
+#~ msgid "For user:"
+#~ msgstr "برای کاربر:"
+
+#~ msgid "Send a sms to you and user when register on wordpress."
+#~ msgstr "ارسال پیامک به شما و خود کاربر هنگام نام‌نویسی در وردپرس."
+
+#~ msgid "Register a new user"
+#~ msgstr "نام‌نویسی کاربر جدید"
+
+#~ msgid "Send a sms to you When the new release of WordPress."
+#~ msgstr "ارسال پیامک به شما هنگام انتشار نگارش تازه‌ی وردپرس."
+
+#~ msgid "The new release of WordPress"
+#~ msgstr "انتشار نگارش تازه وردپرس"
+
+#~ msgid "Date post"
+#~ msgstr "تاریخ نوشته"
+
+#~ msgid "URL post"
+#~ msgstr "آدرس نوشته"
+
+#~ msgid "Title post"
+#~ msgstr "عنوان نوشته"
+
+#~ msgid "Send a sms to subscribers When published new posts."
+#~ msgstr "ارسال پیامک به مشترکین خبرنامه هنگام انتشار نوشته‌ی تازه."
+
+#~ msgid "Published new posts"
+#~ msgstr "انتشار نوشته‌ی تازه"
+
+#~ msgid "Wordpress"
+#~ msgstr "وردپرس"
+
+#~ msgid "WordPress %s is available! Please update now"
+#~ msgstr "وردپرس %s در دسترس است! لطفا به‌روز رسانی کنید"
+
+#~ msgid "Order Name"
+#~ msgstr "نام سفارش"
+
+#~ msgid "Order Status"
+#~ msgstr "وضعیت سفارش"
+
+#~ msgid "Order ID"
+#~ msgstr "شماره سفارش"
+
+#~ msgid "Input data:"
+#~ msgstr "داده‌های ورودی:"
+
+#~ msgid "WooCommerce"
+#~ msgstr "ووکامرس"
+
+#~ msgid "Enter the contents of the sms message."
+#~ msgstr "محتوای متن ارسال پیامک را وارد کنید."
+
+#~ msgid "Text template"
+#~ msgstr "قالب متن"
+
+#~ msgid "Send a sms to you When get new order."
+#~ msgstr "ارسال پیامک به شما هنگام دریافت سفارش جدید."
+
+#~ msgid "New order"
+#~ msgstr "سفارش جدید"
+
+#~ msgid "Easy Digital Downloads"
+#~ msgstr "Easy Digital Downloads"
+
+#~ msgid "<b>Note:</b> Use %% Instead of [], for example: %your-mobile%"
+#~ msgstr "<b>نکته:</b> استفاده کنید %% به جای [], به‌عنوان مثال: %your-name%"
+
+#~ msgid "Send to field"
+#~ msgstr "ارسال به فیلد"
+
+#~ msgid "After submit form you can send a sms message to field"
+#~ msgstr "می‌توانید بعد از ثبت شدن فرم، یک پیامک به مقدار یک فیلد ارسال کنید."
+
+#~ msgid "Send to form"
+#~ msgstr "ارسال به فرم"
+
+#~ msgid "<b>Note:</b> Use %% Instead of [], for example: %your-name%"
+#~ msgstr "<b>نکته:</b> استفاده کنید %% به جای [], به‌عنوان مثال: %your-name%"
+
+#~ msgid "Message body"
+#~ msgstr "متن پیام"
+
+#~ msgid "Send to"
+#~ msgstr "ارسال به"
+
+#~ msgid "After submit form you can send a sms message to number"
+#~ msgstr "می‌توانید بعد از ثبت شدن فرم، یک پیامک به شماره مورد نظر ارسال کنید."
+
+#~ msgid "Send to number"
+#~ msgstr "ارسال به شماره"
+
+#~ msgid ""
+#~ "Added Wordpress SMS meta box to Contact form 7 plugin when enable this "
+#~ "option."
+#~ msgstr ""
+#~ "با فعال کردن این گزینه جعبه اطلاعات پیامک وردپرس به افزونه فرم تماس 7 "
+#~ "اضافه میشود."
+
+#~ msgid "Active"
+#~ msgstr "فعال"
+
+#~ msgid "SMS meta box"
+#~ msgstr "جعبه اطلاعات پیامک"
+
+#~ msgid "Contact Form 7"
+#~ msgstr "فرم تماس 7"
+
+#~ msgid "Enter your information for SMS Subscribe"
+#~ msgstr "برای عضویت در خبرنامه پیامکی، اطلاعات خود را وارد کنید"
+
+#~ msgid "<strong>ERROR</strong>: You must include a mobile number."
+#~ msgstr "<strong>خطا</strong>: شماره موبایل خود را بنویسید."
+
+#~ msgid "Mobile"
+#~ msgstr "موبایل"
+
+#~ msgid "SMS was sent with success"
+#~ msgstr "پیامک با موفقیت ارسال شد"
+
+#~ msgid "Group successfully updated."
+#~ msgstr "گروه با موفقیت به روز شد."
+
+#~ msgid "Group successfully added."
+#~ msgstr "گروه با موفقیت اضافه شد."
+
+#~ msgid "Name is empty!"
+#~ msgstr "نام خالی است!"
+
+#~ msgid "Subscriber successfully updated."
+#~ msgstr "مشترک با موفقیت به روز شد."
+
+#~ msgid "Subscriber successfully added."
+#~ msgstr "مشترک با موفقیت اضافه شد."
+
+#~ msgid "Name or mobile is empty!"
+#~ msgstr "نام یا موبایل خالی است!"
+
+#~ msgid "Your subscription was canceled."
+#~ msgstr "عضویت شما لغو شد."
+
+#~ msgid "You will join the newsletter"
+#~ msgstr "شما عضو خبرنامه شدید"
+
+#~ msgid "You will join the newsletter, Activation code sent to your mobile."
+#~ msgstr "اشتراک شما انجام شد. کد فعال سازی به موبایل شما ارسال شد."
+
+#~ msgid "Your activation code"
+#~ msgstr "کدفعال سازی شما"
+
+#~ msgid ""
+#~ "Service provider is not available for send activate key to your mobile. "
+#~ "Please contact with site."
+#~ msgstr ""
+#~ "سرویس‌هنده برای ارسال کد فعال سازی به موبایل شما در دسترس نیست. لطفاً با "
+#~ "مدیریت سایت تماس بگیرید."
+
+#~ msgid "Phone number is repeated"
+#~ msgstr "شماره موبایل تکراری است"
+
+#~ msgid "Your mobile number is low!"
+#~ msgstr "شماره موبایل وارد شده کم است!"
+
+#~ msgid "Your mobile number is high!"
+#~ msgstr "شماره موبایل وارد شده طولانی است!"
+
+#~ msgid "Please enter a valid mobile number"
+#~ msgstr "شماره موبایل معتبر نیست"
+
+#~ msgid "Your subscription was successful!"
+#~ msgstr "عضویت شما انجام شد!"
+
+#~ msgid "Activation code is wrong!"
+#~ msgstr "کد فعال سازی اشتباه است!"
+
+#~ msgid "Please enter the activation code!"
+#~ msgstr "لطفا کدفعال سازی را وارد کنید!"
+
+#~ msgid "Mobile number is missing!"
+#~ msgstr "شماره موبایل یافت نشد!"
+
+#~ msgid "Please complete all fields"
+#~ msgstr "لطفا تمامی فیلدها را کامل کنید"
+
+#~ msgid "<strong>%s</strong> Mobile numbers Was repeated."
+#~ msgstr "تعداد  <strong>%s</strong> شماره موبایل تکراری بود."
+
+#~ msgid "<strong>%s</strong> items was successfully added."
+#~ msgstr "تعداد <strong>%s</strong> آیتم با موفقیت اضافه شد."
+
+#~ msgid "Please select the desired items."
+#~ msgstr "لطفاً یکم آیتم را انتخاب کنید."
+
+#~ msgid "Access denied!"
+#~ msgstr "دسترسی غیرمجاز!"
