@@ -1,509 +1,205 @@
 <?php
-/*
-Plugin Name: WP SMS
-Plugin URI: http://wpsms.veronalabs.com/
-Description: A complete wordpress plugin to send sms with a high capability.
-Version: 4.0.0
-Author: Mostafa Soufi
-Author URI: http://mostafa-soufi.ir/
-Text Domain: wp-sms
-*/
-
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
-
 /**
- * Plugin defines
- */
-define('WP_SMS_VERSION', '4.0.0');
-define('WP_SMS_PLUGIN_DIR', plugin_dir_url(__FILE__));
-define('WP_SMS_ADMIN_URL', get_admin_url());
-define('WP_SMS_SITE_URL', 'http://wpsms.veronalabs.com/');
-define('WP_SMS_MOBILE_REGEX', '/^[\+|\(|\)|\d|\- ]*$/');
-
-// WP SMS Plugin Class
-class WP_SMS {
-
-	/**
-	 * The single instance of the class.
-	 *
-	 * @var WP_SMS
-	 * @since 2.1
-	 */
-	protected static $_instance = null;
-
-	/**
-	 * Wordpress Admin url
-	 *
-	 * @var string
-	 */
-	public $admin_url = WP_SMS_ADMIN_URL;
-
-	/**
-	 * WP SMS subscriber object
-	 *
-	 * @var string
-	 */
-	public $subscriber;
-	
-	/**
-	 * Current date/time
-	 *
-	 * @var string
-	 */
-	public $date;
-	
-	/**
-	 * Wordpress Database
-	 *
-	 * @var string
-	 */
-	public $db;
-	
-	/**
-	 * Wordpress Table prefix
-	 *
-	 * @var string
-	 */
-	public $tb_prefix;
-
-	public $gateway;
-
-	/**
-	 * Main WP_SMS Instance.
-	 *
-	 * Ensures only one instance of WP_SMS is loaded or can be loaded.
-	 *
-	 * @since 2.1
-	 * @static
-	 * @see WC()
-	 * @return WP_SMS - Main instance.
-	 */
-	public static function instance() {
-		if ( is_null( self::$_instance ) ) {
-			self::$_instance = new self();
-		}
-		return self::$_instance;
-	}
-	
-	/**
-	 * Constructors plugin
-	 *
-	 */
-	public function __construct() {
-
-		// Global variables
-		global $wpdb, $table_prefix, $date;
-
-		$this->date = $date;
-		$this->db = $wpdb;
-		$this->tb_prefix = $table_prefix;
-		$this->date = date('Y-m-d H:i:s' ,current_time('timestamp', 0));
-		
-		__('WP SMS', 'wp-sms');
-		__('A complete wordpress plugin to send sms with a high capability.', 'wp-sms');
-		
-		$this->init_hooks();
-		$this->include_files();
-		$this->notifications();
-	}
-
-	/**
-	 * Includes plugin files
-	 *
-	 * @param  Not param
-	 */
-	public function include_files() {
-		$files = array(
-			'version',
-			'features',
-			'widget',
-			'newslleter',
-			'includes/functions',
-			'includes/class-wpsms-settings-api',
-			'admin/settings',
-			'includes/classes/wp-sms-subscribers.class',
-			'includes/class-wpsms-gateway',
-			'includes/class-wpsms-notice',
-			'includes/class-wpsms-features',
-		);
-
-		foreach($files as $file) {
-			include_once dirname( __FILE__ ) . '/' . $file . '.php';
-		}
-
-		$this->gateway = new WP_SMS_Gateway();
-		$this->subscriber = new WP_SMS_Subscriptions();
-	}
-	
-	/**
-	 * Notification plugin with another system
-	 *
-	 * @param  Not param
-	 */
-	public function notifications() {
-		$files = array(
-			'wp',
-			'cf7',
-			'wc',
-			'edd',
-		);
-		
-		foreach($files as $file) {
-			include_once dirname( __FILE__ ) . '/includes/notifications/' . $file . '/index.php';
-		}
-	}
-
-	/**
-	 * Hook into actions and filters.
-	 *
-	 * @since 4.0.0
-	 */
-	private function init_hooks() {
-		register_activation_hook( __FILE__, array( &$this, 'install' ) );
-		register_activation_hook( __FILE__, array( &$this, 'add_cap' ) );
-		
-		load_plugin_textdomain('wp-sms', false, dirname( plugin_basename( __FILE__ ) ) . '/languages');
-
-		add_action('admin_enqueue_scripts', array(&$this, 'admin_assets'));
-		add_action('wp_enqueue_scripts', array(&$this, 'front_assets'));
-		
-		add_action('admin_bar_menu', array($this, 'adminbar'));
-		add_action('dashboard_glance_items', array($this, 'dashboard_glance'));
-		add_action('admin_menu', array(&$this, 'menu'));
-	}
-
-	/**
-	 * Creating plugin tables
-	 *
-	 * @param  Not param
-	 */
-	static function install() {
-		global $wp_sms_db_version;
-		
-		include_once dirname( __FILE__ ) . '/install.php';
-		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-		
-		dbDelta($create_sms_subscribes);
-		dbDelta($create_sms_subscribes_group);
-		dbDelta($create_sms_send);
-		
-		add_option('wp_sms_db_version', WP_SMS_VERSION);
-	}
-
-	/**
-	 * Adding new capability in the plugin
-	 *
-	 * @param  Not param
-	 */
-	public function add_cap() {
-		// gets the administrator role
-		$role = get_role( 'administrator' );
-		
-		$role->add_cap( 'wpsms_sendsms' );
-		$role->add_cap( 'wpsms_outbox' );
-		$role->add_cap( 'wpsms_subscribers' );
-		$role->add_cap( 'wpsms_subscribe_groups' );
-		$role->add_cap( 'wpsms_setting' );
-	}
-
-	/**
-	 * Include admin assets
-	 *
-	 * @param  Not param
-	 */
-	public function admin_assets() {
-		wp_register_style('wpsms-admin', plugin_dir_url(__FILE__) . 'assets/css/admin.css', true, '1.1');
-		wp_enqueue_style('wpsms-admin');
-		
-		wp_enqueue_style('chosen', plugin_dir_url(__FILE__) . 'assets/css/chosen.min.css', true, '1.2.0');
-		wp_enqueue_script('chosen', plugin_dir_url(__FILE__) . 'assets/js/chosen.jquery.min.js', true, '1.2.0');
-		
-		if( get_option('wp_call_jquery') )
-			wp_enqueue_script('jquery');
-	}
-
-	/**
-	 * Include front table
-	 *
-	 * @param  Not param
-	 */
-	public function front_assets() {
-		wp_register_style('wpsms-subscribe', plugin_dir_url(__FILE__) . 'assets/css/subscribe.css', true, '1.1');
-		wp_enqueue_style('wpsms-subscribe');
-	}
-	
-	/**
-	 * Admin bar plugin
-	 *
-	 * @param  Not param
-	 */
-	public function adminbar() {
-		global $wp_admin_bar;
-		
-		if(is_super_admin() && is_admin_bar_showing()) {
-			if(get_option('wp_last_credit') && get_option('wp_sms_cam')) {
-				$wp_admin_bar->add_menu(array(
-					'id'		=>	'wp-credit-sms',
-					'title'		=>	'<span class="ab-icon"></span>'.get_option('wp_last_credit'),
-					'href'		=>	$this->admin_url.'/admin.php?page=wp-sms-settings',
-				));
-			}
-			
-			$wp_admin_bar->add_menu(array(
-				'id'		=>	'wp-send-sms',
-				'parent'	=>	'new-content',
-				'title'		=>	__('SMS', 'wp-sms'),
-				'href'		=>	$this->admin_url.'/admin.php?page=wp-sms'
-			));
-		}
-	}
-	
-	/**
-	 * Dashboard glance plugin
-	 *
-	 * @param  Not param
-	 */
-	public function dashboard_glance() {
-		$subscribe = $this->db->get_var("SELECT COUNT(*) FROM {$this->tb_prefix}sms_subscribes");
-		echo "<li class='wpsms-subscribe-count'><a href='".$this->admin_url."admin.php?page=wp-sms-subscribers'>".sprintf(__('%s Subscriber', 'wp-sms'), $subscribe)."</a></li>";
-		echo "<li class='wpsms-credit-count'><a href='".$this->admin_url."admin.php?page=wp-sms-settings&tab=web-service'>".sprintf(__('%s SMS Credit', 'wp-sms'), get_option('wp_last_credit'))."</a></li>";
-	}
-	
-	/**
-	 * Admin newsletter
-	 *
-	 * @param  Not param
-	 */
-	public function admin_newsletter() {
-		include_once dirname( __FILE__ ) . '/includes/templates/wp-sms-admin-newsletter.php';
-	}
-	
-	/**
-	 * Shortcodes plugin
-	 *
-	 * @param  Not param
-	 */
-	public function shortcode( $atts, $content = null ) {
-		
-	}
-	
-	/**
-	 * Administrator menu
-	 *
-	 * @param  Not param
-	 */
-	public function menu() {
-		add_menu_page(__('Wordpress SMS', 'wp-sms'), __('Wordpress SMS', 'wp-sms'), 'wpsms_sendsms', 'wp-sms', array(&$this, 'send_page'), 'dashicons-email-alt');
-		add_submenu_page('wp-sms', __('Send SMS', 'wp-sms'), __('Send SMS', 'wp-sms'), 'wpsms_sendsms', 'wp-sms', array(&$this, 'send_page'));
-		add_submenu_page('wp-sms', __('Outbox', 'wp-sms'), __('Outbox', 'wp-sms'), 'wpsms_outbox', 'wp-sms-outbox', array(&$this, 'outbox_page'));
-		add_submenu_page('wp-sms', __('Subscribers', 'wp-sms'), __('Subscribers', 'wp-sms'), 'wpsms_subscribers', 'wp-sms-subscribers', array(&$this, 'subscribe_page'));
-		add_submenu_page('wp-sms', __('Subscribers Group', 'wp-sms'), __('Subscribers Group', 'wp-sms'), 'wpsms_subscribe_groups', 'wp-sms-subscribers-group', array(&$this, 'groups_page'));
-	}
-	
-	/**
-	 * Sending sms admin page
-	 *
-	 * @param  Not param
-	 */
-	public function send_page() {
-		wp_enqueue_script('functions', plugin_dir_url(__FILE__) . 'assets/js/functions.js', true, '1.0');
-		
-		$get_group_result = $this->db->get_results("SELECT * FROM `{$this->tb_prefix}sms_subscribes_group`");
-		$get_users_mobile = $this->db->get_col("SELECT `meta_value` FROM `{$this->tb_prefix}usermeta` WHERE `meta_key` = 'mobile'");
-		
-		if(get_option('wp_webservice') && !$this->sms->GetCredit()) {
-			$get_bloginfo_url = WP_SMS_ADMIN_URL . "admin.php?page=wp-sms-settings&tab=web-service";
-			echo '<br><div class="update-nag">'.sprintf(__('Your credit for send sms is low!', 'wp-sms'), $get_bloginfo_url).'</div>';
-			return;
-		} else if(!get_option('wp_webservice')) {
-			return;
-		}
-		
-		if(isset($_POST['SendSMS'])) {
-			if($_POST['wp_get_message']) {
-				if($_POST['wp_send_to'] == "wp_subscribe_username") {
-					if( $_POST['wpsms_group_name'] == 'all' ) {
-						$this->sms->to = $this->db->get_col("SELECT mobile FROM {$this->tb_prefix}sms_subscribes WHERE `status` = '1'");
-					} else {
-						$this->sms->to = $this->db->get_col("SELECT mobile FROM {$this->tb_prefix}sms_subscribes WHERE `status` = '1' AND `group_ID` = '".$_POST['wpsms_group_name']."'");
-					}
-				} else if($_POST['wp_send_to'] == "wp_users") {
-					$this->sms->to = $get_users_mobile;
-				} else if($_POST['wp_send_to'] == "wp_tellephone") {
-					$this->sms->to = explode(",", $_POST['wp_get_number']);
-				}
-				
-				$this->sms->msg = $_POST['wp_get_message'];
-
-				if($_POST['wp_flash'] == "true") {
-					$this->sms->isflash = true;
-				}
-				elseif($_POST['wp_flash'] == "false") {
-					$this->sms->isflash = false;
-				}
-
-				if($this->sms->SendSMS()) {
-					$to = implode($this->db->get_col("SELECT mobile FROM {$tb_prefix}sms_subscribes"), ",");
-					echo "<div class='updated'><p>" . __('SMS was sent with success', 'wp-sms') . "</p></div>";
-					update_option('wp_last_credit', $this->sms->GetCredit());
-				}
-			} else {
-				echo "<div class='error'><p>" . __('Please enter a message', 'wp-sms') . "</p></div>";
-			}
-		}
-		
-		include_once dirname( __FILE__ ) . "/includes/templates/send/send-sms.php";
-	}
-	
-	/**
-	 * Outbox sms admin page
-	 *
-	 * @param  Not param
-	 */
-	public function outbox_page() {
-		include_once dirname( __FILE__ ) . '/includes/wp-sms-outbox.php';
-		
-		//Create an instance of our package class...
-		$list_table = new WP_SMS_Outbox_List_Table();
-		
-		//Fetch, prepare, sort, and filter our data...
-		$list_table->prepare_items();
-		
-		include_once dirname( __FILE__ ) . "/includes/templates/outbox/outbox.php";
-	}
-	
-	/**
-	 * Subscribe admin page
-	 *
-	 * @param  Not param
-	 */
-	public function subscribe_page() {
-		
-		if(isset($_GET['action'])) {
-			// Add subscriber page
-			if($_GET['action'] == 'add') {
-				include_once dirname( __FILE__ ) . "/includes/templates/subscribe/add-subscriber.php";
-				
-				if(isset($_POST['wp_add_subscribe'])) {
-					$result = $this->subscribe->add_subscriber($_POST['wp_subscribe_name'], $_POST['wp_subscribe_mobile'], $_POST['wpsms_group_name']);
-					echo $this->notice_result($result['result'], $result['message']);
-				}
-				
-				return;
-			}
-			
-			// Edit subscriber page
-			if($_GET['action'] == 'edit') {
-				if(isset($_POST['wp_update_subscribe'])) {
-					$result = $this->subscribe->update_subscriber($_GET['ID'], $_POST['wp_subscribe_name'], $_POST['wp_subscribe_mobile'], $_POST['wpsms_group_name'], $_POST['wpsms_subscribe_status']);
-					echo $this->notice_result($result['result'], $result['message']);
-				}
-				
-				$get_subscribe = $this->subscribe->get_subscriber($_GET['ID']);
-				include_once dirname( __FILE__ ) . "/includes/templates/subscribe/edit-subscriber.php";
-				
-				return;
-			}
-			
-			// Import subscriber page
-			if($_GET['action'] == 'import') {
-				include_once dirname( __FILE__ ) . "/import.php";
-				include_once dirname( __FILE__ ) . "/includes/templates/subscribe/import.php";
-				
-				return;
-			}
-			
-			// Export subscriber page
-			if($_GET['action'] == 'export') {
-				include_once dirname( __FILE__ ) . "/includes/templates/subscribe/export.php";
-				
-				return;
-			}
-		}
-		
-		include_once dirname( __FILE__ ) . '/includes/wp-sms-subscribers.php';
-		
-		//Create an instance of our package class...
-		$list_table = new WP_SMS_Subscribers_List_Table();
-		
-		//Fetch, prepare, sort, and filter our data...
-		$list_table->prepare_items();
-		
-		include_once dirname( __FILE__ ) . "/includes/templates/subscribe/subscribes.php";
-	}
-	
-	/**
-	 * Subscribe groups admin page
-	 *
-	 * @param  Not param
-	 */
-	public function groups_page() {
-		
-		if(isset($_GET['action'])) {
-			// Add group page
-			if($_GET['action'] == 'add') {
-				include_once dirname( __FILE__ ) . "/includes/templates/subscribe/add-group.php";
-				if(isset($_POST['wp_add_group'])) {
-					$result = $this->subscribe->add_group($_POST['wp_group_name']);
-					echo $this->notice_result($result['result'], $result['message']);
-				}
-				
-				return;
-			}
-			
-			// Manage group page
-			if($_GET['action'] == 'edit') {
-				if(isset($_POST['wp_update_group'])) {
-					$result = $this->subscribe->update_group($_GET['ID'], $_POST['wp_group_name']);
-					echo $this->notice_result($result['result'], $result['message']);
-				}
-				
-				$get_group = $this->subscribe->get_group($_GET['ID']);
-				include_once dirname( __FILE__ ) . "/includes/templates/subscribe/edit-group.php";
-				
-				return;
-			}
-		}
-		
-		include_once dirname( __FILE__ ) . '/includes/wp-sms-subscribers-groups.php';
-		
-		//Create an instance of our package class...
-		$list_table = new WP_SMS_Subscribers_Groups_List_Table();
-		
-		//Fetch, prepare, sort, and filter our data...
-		$list_table->prepare_items();
-		
-		include_once dirname( __FILE__ ) . "/includes/templates/subscribe/groups.php";
-	}
-
-}
-
-/**
- * Main instance of WP_SMS.
+ * Plugin Name: WP SMS
+ * Plugin URI: http://wpsms.veronalabs.com/
+ * Description: A complete wordpress plugin to send sms with a high capability.
+ * Version: 4.0.0
+ * Author: Mostafa Soufi
+ * Author URI: http://mostafa-soufi.ir/
+ * Requires at least: 4.0.0
+ * Tested up to: 4.7.0
  *
+ * Text Domain: wp-sms
+ * Domain Path: /languages/
+ *
+ * @package WP_SMS
+ * @category Core
+ * @author Mostafa Soufi
+ */
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+/**
  * Returns the main instance of WP_SMS to prevent the need to use globals.
  *
- * @since  2.1
- * @return WP_SMS
+ * @since  1.0.0
+ * @return object WP_SMS
  */
 function WP_SMS() {
 	return WP_SMS::instance();
-}
+} // End WP_SMS()
 
-// Global for backwards compatibility.
-add_action('plugins_loaded', 'WP_SMS');
+add_action( 'plugins_loaded', 'WP_SMS' );
 
+/**
+ * Main WP_SMS Class
+ *
+ * @class WP_SMS
+ * @version	1.0.0
+ * @since 1.0.0
+ * @package	WP_SMS
+ * @author Mostafa Soufi
+ */
+final class WP_SMS {
+	/**
+	 * WP_SMS The single instance of WP_SMS.
+	 * @var 	object
+	 * @access  private
+	 * @since 	1.0.0
+	 */
+	private static $_instance = null;
 
-/*WP_SMS()->gateway->to = array('09128705922');
-WP_SMS()->gateway->from = '982188384690';
-WP_SMS()->gateway->message = 'Hello 2';
-$result = WP_SMS()->gateway->send();
+	/**
+	 * The token.
+	 * @var     string
+	 * @access  public
+	 * @since   1.0.0
+	 */
+	public $token;
 
-print_r($result);
+	/**
+	 * The version number.
+	 * @var     string
+	 * @access  public
+	 * @since   1.0.0
+	 */
+	public $version;
 
-if( is_wp_error( $result ) ) {
-	echo $result->get_error_message();
-}*/
+	/**
+	 * The plugin directory URL.
+	 * @var     string
+	 * @access  public
+	 * @since   1.0.0
+	 */
+	public $plugin_url;
+
+	/**
+	 * The plugin directory path.
+	 * @var     string
+	 * @access  public
+	 * @since   1.0.0
+	 */
+	public $plugin_path;
+
+	// Admin - Start
+	/**
+	 * The admin object.
+	 * @var     object
+	 * @access  public
+	 * @since   1.0.0
+	 */
+	public $admin;
+
+	/**
+	 * The settings object.
+	 * @var     object
+	 * @access  public
+	 * @since   1.0.0
+	 */
+	public $settings;
+	// Admin - End
+
+	// Post Types - Start
+	/**
+	 * The post types we're registering.
+	 * @var     array
+	 * @access  public
+	 * @since   1.0.0
+	 */
+	public $post_types = array();
+	// Post Types - End
+	/**
+	 * Constructor function.
+	 * @access  public
+	 * @since   1.0.0
+	 */
+	public function __construct () {
+		$this->token 			= 'wp-sms';
+		$this->plugin_url 		= plugin_dir_url( __FILE__ );
+		$this->plugin_path 		= plugin_dir_path( __FILE__ );
+		$this->version 			= '4.0.0';
+
+		// Admin - Start
+		require_once( 'classes/class-wp-sms-settings.php' );
+			$this->settings = WP_SMS_Settings::instance();
+
+		if ( is_admin() ) {
+			require_once( 'classes/class-wp-sms-admin.php' );
+			$this->admin = WP_SMS_Admin::instance();
+		}
+		// Admin - End
+
+		// Post Types - Start
+		require_once( 'classes/class-wp-sms-post-type.php' );
+		require_once( 'classes/class-wp-sms-taxonomy.php' );
+
+		// Register an example post type. To register other post types, duplicate this line.
+		$this->post_types['thing'] = new WP_SMS_Post_Type( 'thing', __( 'Thing', 'wp-sms' ), __( 'Things', 'wp-sms' ), array( 'menu_icon' => 'dashicons-carrot' ) );
+		// Post Types - End
+		register_activation_hook( __FILE__, array( $this, 'install' ) );
+
+		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
+	} // End __construct()
+
+	/**
+	 * Main WP_SMS Instance
+	 *
+	 * Ensures only one instance of WP_SMS is loaded or can be loaded.
+	 *
+	 * @since 1.0.0
+	 * @static
+	 * @see WP_SMS()
+	 * @return Main WP_SMS instance
+	 */
+	public static function instance () {
+		if ( is_null( self::$_instance ) )
+			self::$_instance = new self();
+		return self::$_instance;
+	} // End instance()
+
+	/**
+	 * Load the localisation file.
+	 * @access  public
+	 * @since   1.0.0
+	 */
+	public function load_plugin_textdomain() {
+		load_plugin_textdomain( 'wp-sms', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	} // End load_plugin_textdomain()
+
+	/**
+	 * Cloning is forbidden.
+	 * @access public
+	 * @since 1.0.0
+	 */
+	public function __clone () {
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?' ), '1.0.0' );
+	} // End __clone()
+
+	/**
+	 * Unserializing instances of this class is forbidden.
+	 * @access public
+	 * @since 1.0.0
+	 */
+	public function __wakeup () {
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?' ), '1.0.0' );
+	} // End __wakeup()
+
+	/**
+	 * Installation. Runs on activation.
+	 * @access  public
+	 * @since   1.0.0
+	 */
+	public function install () {
+		$this->_log_version_number();
+	} // End install()
+
+	/**
+	 * Log the plugin version number.
+	 * @access  private
+	 * @since   1.0.0
+	 */
+	private function _log_version_number () {
+		// Log the version number.
+		update_option( $this->token . '-version', $this->version );
+	} // End _log_version_number()
+} // End Class
